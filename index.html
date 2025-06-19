@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chat GIF Commands</title>
+  <style>
+    :root {
+      --bg-color: #0f1117;
+      --card-color: #1a1d24;
+      --accent: #00ffd1;
+      --text-light: #ffffff;
+      --text-subtle: #b0b0b0;
+      --command-color: #ffdd57;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem 1rem;
+      background-color: var(--bg-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-light);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      text-align: center;
+      color: var(--text-subtle);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .commands-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .command-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: var(--card-color);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 255, 209, 0.1);
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .command-text {
+      flex: 1 1 120px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--command-color);
+    }
+
+    .command-gif {
+      flex: 2 1 180px;
+    }
+
+    .command-gif img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--text-subtle);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .command-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .command-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎬 Chat GIF Commands</h1>
+  <p>Type <strong>!gif [command]</strong> in chat to trigger a fun GIF!</p>
+
+  <div class="commands-wrapper">
+
+    <div class="command-card">
+      <div class="command-text">!gif noob</div>
+      <div class="command-gif">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzVhOTN3dmJwbmZobjBxNzRtN2x1Y2wzZjJuNWUxb3Z5MjdoajRnZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WyrdDeIxGOlQA/giphy.gif" alt="noob gif">
+      </div>
+    </div>
+
+    <div class="command-card">
+      <div class="command-text">!gif why</div>
+      <div class="command-gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjFub2tqNnhheGFjMGVhYTA2M3JjdWRkeXg3Ymxsc3dobTMwYzN1NyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/0Vv0Ne2CnOClIExIuL/giphy.gif" alt="why gif">
+      </div>
+    </div>
+
+    <div class="command-card">
+      <div class="command-text">!gif whaat</div>
+      <div class="command-gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTk1eDQ0bzZ0Z252N3EyZWN4ZWs4ZHVqeDZtcnVrcWJ3cjZsamxqdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/lxxOGaDRk4f7R5TkBd/giphy.gif" alt="whaat gif">
+      </div>
+    </div>
+
+    <div class="command-card">
+      <div class="command-text">!gif woah</div>
+      <div class="command-gif">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTk1eDQ0bzZ0Z252N3EyZWN4ZWs4ZHVqeDZtcnVrcWJ3cjZsamxqdSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/EH710AfxjA45j1eios/giphy.gif" alt="woah gif">
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Made by TheGamingFist · Use these commands live with <strong>!gif</strong> in chat
+  </footer>
+
+</body>
+</html>
