@@ -1,7 +1,6 @@
 fetch('gifs.json')
   .then(response => response.json())
   .then(gifs => {
-    console.log('response', response)
     const container = document.getElementById("gifContainer");
 
     gifs.forEach(gif => {
