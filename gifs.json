@@ -1,27 +1,39 @@
 [
   {
     "command": "noob",
-    "url": "https://media0.giphy.com/media/WyrdDeIxGOlQA/giphy.gif"
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\noob.gif"
   },
   {
     "command": "why",
-    "url": "https://media.giphy.com/media/0Vv0Ne2CnOClIExIuL/giphy.gif"
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\why.gif"
   },
   {
     "command": "whaat",
-    "url": "https://media.giphy.com/media/lxxOGaDRk4f7R5TkBd/giphy.gif"
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\whaat.gif"
   },
   {
     "command": "woah",
-    "url": "https://media.giphy.com/media/EH710AfxjA45j1eios/giphy.gif"
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\woah.gif"
   },
   {
-    "command": "money",
-    "url": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGVqZDZxb2UwdWVjbHZlOTRtZXpjZ2R2eWtqdnU1ZHltaTA4anFmMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MFsqcBSoOKPbjtmvWz/giphy.gif"
+    "command": "rich",
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\rich.gif"
   },
   {
-    "command": "richcry",
-    "url": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjhodGd6dmRwaTJiaWVhNHIwbDcyaHcwcHBoc21kejE3MmJ5amdxZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/94EQmVHkveNck/giphy.gif"
+    "command": "blush",
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\blush.gif"
+  },
+  {
+    "command": "kekw",
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\kekw.gif"
+  },
+  {
+    "command": "sigma",
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\sigma.gif"
+  },
+  {
+    "command": "xudgayeguru",
+    "path": "E:\\TGF\\Assets\\TGFChatPage\\media\\xudgayeguru.gif"
   }
 ]
 

@@ -1,31 +1,35 @@
-fetch('gifs.json')
-  .then(response => response.json())
-  .then(gifs => {
-    const container = document.getElementById("gifContainer");
+async function loadGifs() {
+  try {
+    const res = await fetch('./gifs.json');
+    const gifs = await res.json();
+    const container = document.getElementById('gifContainer');
 
     gifs.forEach(gif => {
-      const card = document.createElement("div");
-      card.className = "command-card";
-      card.onclick = () => copyCommand(`!gif ${gif.command}`);
-
+      const card = document.createElement('div');
+      card.className = 'card';
       card.innerHTML = `
-        <div class="command-text">!gif ${gif.command}</div>
-        <div class="command-gif">
-          <img src="${gif.url}" alt="${gif.command} gif">
-        </div>
+        <img src="./media/${gif.command}.gif" alt="${gif.command}">
+        <p>!gif ${gif.command}</p>
       `;
+
+      card.addEventListener('click', () => {
+        navigator.clipboard.writeText(`!gif ${gif.command}`);
+        showToast();
+      });
 
       container.appendChild(card);
     });
-  });
-
-function copyCommand(commandText) {
-  navigator.clipboard.writeText(commandText).then(() => {
-    const toast = document.getElementById("toast");
-    toast.classList.add("show");
-    clearTimeout(window.toastTimeout);
-    window.toastTimeout = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2000);
-  });
+  } catch (err) {
+    console.error('❌ Failed to load gifs.json:', err);
+  }
 }
+
+function showToast() {
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2000);
+}
+
+loadGifs();
