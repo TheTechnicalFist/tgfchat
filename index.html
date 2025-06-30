@@ -7,11 +7,19 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>🎬 Chat GIF Commands</h1>
-  <p class="description">Click/tap on a card to copy the command (like <code>!gif noob</code>)</p>
-  <div class="grid" id="gifContainer"></div>
+  <header>
+    <h1>🎬 Chat GIF Commands</h1>
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search commands…" />
+    </div>
+  </header>
+
+  <main>
+    <div class="grid" id="gifContainer"></div>
+  </main>
 
   <div class="toast" id="toast">Command copied!</div>
+  <footer>Click a card to copy your <code>!gif</code> command</footer>
 
   <script src="script.js"></script>
 </body>

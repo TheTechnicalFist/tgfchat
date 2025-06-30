@@ -1,75 +1,109 @@
+:root {
+  --bg: #121212;
+  --card-bg: #1e1e2a;
+  --accent: #e1ad01;
+  --text-main: #f0f0f0;
+  --text-sub: #aaaaaa;
+  --toast-bg: rgba(0,0,0,0.8);
+  --toast-color: #fff;
+}
+* { box-sizing: border-box; }
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #111;
-  color: #fff;
-  padding: 1rem;
   margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-h1 {
+header {
+  padding: 1rem;
   text-align: center;
-  color: #ffcc00;
-  margin-bottom: 0.5rem;
+}
+h1 { font-size: 2rem; color: var(--accent); }
+
+.search-container {
+  margin-top: .5rem;
+}
+.search-container input {
+  width: 90%; max-width: 400px;
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 25px;
+  background: #2a2a36;
+  color: var(--text-main);
+  font-size: 1rem;
 }
 
-p.description {
-  text-align: center;
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  color: #ccc;
+main {
+  flex: 1;
+  padding: 1rem;
 }
 
 .grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
-  justify-content: center;
 }
 
 .card {
-  background: #222;
-  border: 1px solid #333;
+  background: var(--card-bg);
   border-radius: 10px;
   overflow: hidden;
-  width: 160px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
 }
-
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.7);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .card p {
   margin: 0;
-  padding: 0.5rem;
+  padding: .5rem;
   text-align: center;
-  background-color: #000;
-  font-size: 0.9rem;
-  color: #ffcc00;
+  background: #16161f;
+  color: var(--accent);
+  font-weight: bold;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toast {
   position: fixed;
-  bottom: 20px;
+  top: 1rem;
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  background: #333;
-  color: #fff;
-  padding: 0.6rem 1.2rem;
+  transform: translateX(-50%) translateY(-100%);
+  background: var(--toast-bg);
+  color: var(--toast-color);
+  padding: .75rem 1.5rem;
   border-radius: 5px;
   opacity: 0;
-  transition: all 0.4s ease;
-  z-index: 1000;
+  transition: opacity .3s, transform .3s;
+  z-index: 999;
 }
-
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+footer {
+  text-align: center;
+  padding: .5rem;
+  font-size: .85rem;
+  color: var(--text-sub);
 }
