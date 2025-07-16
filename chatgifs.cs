@@ -36,53 +36,47 @@ public class CPHInline
 	}
 
 	private void ProcessGifQueue()
-    {
-        // Check if source is already visible
-        bool isVisible = CPH.ObsIsSourceVisible("GamePlay", "chat-gifs");
+	{
+		SetChatGifVisibility(true);
 
-        // Show only if not already visible
-        if (!isVisible)
-        {
-            CPH.ObsSetSourceVisibility("GamePlay", "chat-gifs", true);
-        }
+		while (true)
+		{
+			// Get updated queue
+			List<string> queue = CPH.GetGlobalVar<List<string>>("chatGifQueue", true) ?? new List<string>();
 
-        while (true)
-        {
-            // Get updated queue
-            List<string> queue = CPH.GetGlobalVar<List<string>>("chatGifQueue", true) ?? new List<string>();
+			if (queue.Count == 0)
+				break;
 
-            if (queue.Count == 0)
-                break;
+			// Get and remove first command
+			string command = queue[0];
+			queue.RemoveAt(0);
+			CPH.SetGlobalVar("chatGifQueue", queue, true);
 
-            // Get and remove first command
-            string command = queue[0];
-            queue.RemoveAt(0);
-            CPH.SetGlobalVar("chatGifQueue", queue, true);
+			string filePath = GetGifPathFromJson(command);
 
-            string filePath = GetGifPathFromJson(command);
+			if (string.IsNullOrEmpty(filePath))
+			{
+				CPH.SendMessage("❌ No GIF found for: " + command);
+				continue;
+			}
 
-            if (string.IsNullOrEmpty(filePath))
-            {
-                CPH.SendMessage("❌ No GIF found for: " + command);
-                continue;
-            }
+			PlayGif(filePath);
+		}
 
-            PlayGif(filePath);
-        }
+		// Only hide source if queue is empty
+		SetChatGifVisibility(false);
+		CPH.SetGlobalVar("chatGifPlaying", false, true);
+	}
 
-        // Only hide source if queue is empty
-        CPH.ObsSetSourceVisibility("GamePlay", "chat-gifs", false);
-        CPH.SetGlobalVar("chatGifPlaying", false, true);
-    }
+	private void PlayGif(string filePath)
+	{
+		// Update the media source file path
+		string currentScene = CPH.ObsGetCurrentScene();
+		CPH.ObsSetMediaSourceFile(currentScene, "chat-gifs", filePath);
 
-    private void PlayGif(string filePath)
-    {
-        // Update the media source file path
-        CPH.ObsSetMediaSourceFile("GamePlay", "chat-gifs", filePath);
-
-        // Wait for the gif duration (adjustable)
-        CPH.Wait(5000);
-    }
+		// Wait for the gif duration (adjustable)
+		CPH.Wait(5000);
+	}
 
 
 	private string GetGifPathFromJson(string command)
@@ -112,6 +106,12 @@ public class CPHInline
 		}
 
 		return null;
+	}
+
+	private void SetChatGifVisibility(bool visible)
+	{
+		string currentScene = CPH.ObsGetCurrentScene();
+		CPH.ObsSetSourceVisibility(currentScene, "chat-gifs", visible);
 	}
 
 	private class GifItem
